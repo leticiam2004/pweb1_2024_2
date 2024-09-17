@@ -5,22 +5,53 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <script>
-        function mostrar() {
-            alert("teste");
-            var conteudo = document.getElementById("conteudo");
-            conteudo.innerHTML = "texto diferente";
-            conteudo.style.color = "red";
-            conteudo.style.backgroundColor = "black";
+    <title>PAGINA INCRIVEL DIMAIS</title>
+    <style>
+        #conteudo {
+            text-align: center;
+            font-size: 50px;
         }
-    </script>
+        .animacao {
+            transform: scale(4.5);
+            font-family: Arial, Helvetica, sans-serif;
+        }
+    </style>
 </head>
 
 <body>
     <h1>exemplo JS</h1>
-    <p id="conteudo">texto qualquer</p>
+    <p id="conteudo" onmouseover="mudaCor()" onmouseout="voltaCor()">ENCRIVEL</p>
     <button onclick="mostrar()">clique aqui</button>
+
+    <script>
+        function mostrar() {
+            var conteudo = document.getElementById('conteudo');
+            conteudo.innerHTML = "WOOOOOW";
+            conteudo.style.color = "pink";
+            conteudo.style.backgroundColor = "black";
+        }
+
+        function voltaCor() {
+            var conteudo = document.getElementById('conteudo');
+            conteudo.style.color = "pink";
+            conteudo.style.backgroundColor = "black";
+        }
+
+        function mudaCor() {
+            var conteudo = document.getElementById('conteudo');
+            conteudo.style.color = "black";
+            conteudo.style.backgroundColor = "pink";
+        }
+        conteudo.addEventListener('mouseover', function() {
+            var conteudo = document.getElementById('conteudo');
+            conteudo.classList.add('animacao');
+        });
+
+        conteudo.addEventListener('mouseout', function() {
+            var conteudo = document.getElementById('conteudo');
+            conteudo.classList.remove('animacao');
+            });
+    </script>
 </body>
 
 </html>
