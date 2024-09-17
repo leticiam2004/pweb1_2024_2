@@ -9,7 +9,10 @@
     <script>
         function mostrar() {
             alert("teste");
-            document.getElementById('conteudo').innerHTML = "texto diferente";
+            var conteudo = document.getElementById("conteudo");
+            conteudo.innerHTML = "texto diferente";
+            conteudo.style.color = "red";
+            conteudo.style.backgroundColor = "black";
         }
     </script>
 </head>
