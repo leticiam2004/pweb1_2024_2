@@ -7,7 +7,7 @@
     <title>formulario</title>
     <script>
         function exibirValores(event) {
-            event.preventDefault(); // Impede o envio do formulário
+            event.preventDefault();
 
             const primeiroNome = document.querySelector('input[name="Primeiro Nome"]').value;
             const segundoNome = document.querySelector('input[name="Segundo Nome"]').value;
@@ -23,12 +23,11 @@
 
             const unidade = document.querySelector('#input1').value;
 
-            // Monta a mensagem de alerta
-            let mensagem = `Nome: ${primeiroNome} ${segundoNome}\n`;
-            mensagem += `Curso: ${curso}\n`;
-            mensagem += `Linguagens de preferência: ${linguagens.join(', ')}\n`;
-            mensagem += `Turno: ${turno}\n`;
-            mensagem += `Unidade: ${unidade}`;
+            let mensagem = `nome: ${primeiroNome} ${segundoNome}\n`;
+            mensagem += `curso: ${curso}\n`;
+            mensagem += `linguagens de preferência: ${linguagens.join(', ')}\n`;
+            mensagem += `turno: ${turno}\n`;
+            mensagem += `unidade: ${unidade}`;
 
             alert(mensagem);
         }
