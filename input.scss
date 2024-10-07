@@ -1,0 +1,23 @@
+$font-stack: 'Courier New', Courier, monospace;
+$primary-color: #ddd;
+$purple: rgb(158, 43, 158);
+$blue: rgb(21, 106, 185);
+
+body {
+    background-color: $primary-color;
+}
+
+p {
+    color: $purple;
+    font: 1rem $font-stack;
+    border: 3px outset;
+    margin: 10px;
+    border-radius: 10px;
+    padding: 15px;
+}
+
+h1 {
+    font: 2rem $font-stack;
+    color: $blue;
+    padding: 20px;
+}
