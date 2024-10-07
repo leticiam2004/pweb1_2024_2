@@ -4,42 +4,81 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style>
-        p.esquerda {
-            text-align: left;
-            color: brown;
+    <title>formulario</title>
+    <script>
+        function exibirValores(event) {
+            event.preventDefault();
+
+            const primeiroNome = document.querySelector('input[name="Primeiro Nome"]').value;
+            const segundoNome = document.querySelector('input[name="Segundo Nome"]').value;
+
+            const curso = document.querySelector('input[name="curso"]:checked').value;
+
+            let linguagens = [];
+            document.querySelectorAll('input[type="checkbox"]:checked').forEach((checkbox) => {
+                linguagens.push(checkbox.nextElementSibling.textContent);
+            });
+
+            const turno = document.querySelector('#turno').value;
+
+            const unidade = document.querySelector('#input1').value;
+
+            let mensagem = `nome: ${primeiroNome} ${segundoNome}\n`;
+            mensagem += `curso: ${curso}\n`;
+            mensagem += `linguagens de preferência: ${linguagens.join(', ')}\n`;
+            mensagem += `turno: ${turno}\n`;
+            mensagem += `unidade: ${unidade}`;
+
+            alert(mensagem);
         }
-        p.direita {
-            text-align: right;
-            color: blue;
-        }
-        p.centro {
-            text-align: center;
-            color: darkorange;
-        }
-        p.justificado{
-            text-align: justify;
-            color: purple;
-        }
-    </style>
+    </script>
 </head>
 
 <body>
-    <h3>pagina de texto</h3>
-    <p class="esquerda">Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus illo impedit quam cum ipsa
-        rem vel corporis, earum reiciendis, nihil eius. Ducimus aspernatur mollitia ea sapiente suscipit, porro sequi
-        quas?</p>
-    <p class="direita">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Numquam veniam quibusdam vel qui
-        quaerat, omnis nulla quae vitae illo expedita rem, iure exercitationem distinctio officia molestiae beatae
-        adipisci dolorum nostrum.</p>
-    <p class="centro">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatibus esse eum totam quibusdam
-        cum quas unde facilis ullam aperiam quod, possimus mollitia expedita et, omnis odit fugiat repellat dolor
-        placeat.</p>
-    <p class="justificado">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi nostrum, quisquam sint
-        quibusdam laudantium totam perferendis officia animi voluptatibus consequuntur beatae ratione quos repudiandae
-        tempore. Possimus ipsum accusantium fugit architecto.
-    </p>
+    <form onsubmit="exibirValores(event)">
+        <fieldset>
+            <legend>Formulario matricula de curso</legend>
+            <legend>primeiro nome</legend>
+            <input type="text" name="Primeiro Nome" id="">
+            <legend>segundo nome</legend>
+            <input type="text" name="Segundo Nome" id="">
+            <br><br>
+            <legend>curso</legend>
+            <input type="radio" name="curso" id="tdi" value="Tecnico de informatica">
+            <label for="tdi">Tecnico de informatica</label><br>
+            <input type="radio" name="curso" id="ads" value="ads">
+            <label for="ads">ads</label><br>
+            <input type="radio" name="curso" id="pweb" value="pweb">
+            <label for="pweb">pweb</label>
+            <br><br>
+            <legend>linguagens de prog de sua preferencia</legend>
+            <input type="checkbox" name="php" id="php">
+            <label for="php">php</label><br>
+            <input type="checkbox" name="java" id="java">
+            <label for="java">java</label><br>
+            <input type="checkbox" name="python" id="python">
+            <label for="python">python</label>
+            <br><br>
+            <legend>escolha um turno</legend>
+            <select name="turno" id="turno">
+                <option value="manha">manha</option>
+                <option value="tarde">tarde</option>
+                <option value="noite">noite</option>
+            </select>
+            <br><br>
+            <legend>escolha unidade mais proxima de voce</legend>
+            <input list="datalist1" id="input1" placeholder="Chapeco..." />
+            <datalist id="datalist1">
+                <option value="chapeco"></option>
+                <option value="xaxim"></option>
+                <option value="xanxere"></option>
+                <option value="joinvile"></option>
+                <option value="sao carlos"></option>
+            </datalist>
+            <br><br>
+            <input type="submit" value="Enviar">
+        </fieldset>
+    </form>
 </body>
 
 </html>
