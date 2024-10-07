@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cards with Links</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f5f5f5;
+        }
+
+        .card-container {
+            display: grid;
+            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            width: 80%;
+            max-width: 1000px;
+        }
+
+        .card {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .card-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .card-description {
+            font-size: 1rem;
+            margin-bottom: 20px;
+        }
+
+        .card-button {
+            padding: 10px 20px;
+            border: none;
+            background-color: blue;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+
+        .card-button:hover {
+            background-color: darkblue;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="card-container">
+        <div class="card">
+            <div class="card-title">17/09</div>
+            <div class="card-description">intro a javascript</div>
+            <a href="ex01.html" class="card-button">Ex01</a>
+        </div>
+
+        <div class="card">
+            <div class="card-title">24/09</div>
+            <div class="card-description">formulario e js</div>
+            <a href="ex02.html" class="card-button">Ex02</a>
+        </div>
+
+        <div class="card">
+            <div class="card-title">30/09</div>
+            <div class="card-description">css puro</div>
+            <a href="ex03.html" class="card-button">Ex03</a>
+        </div>
+
+        <div class="card">
+            <div class="card-title">07/10</div>
+            <div class="card-description">css puro (testes com sass)</div>
+            <a href="ex04.html" class="card-button">Ex04</a>
+        </div>
+    </div>
+
+</body>
+
+</html>
