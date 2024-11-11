@@ -11,9 +11,29 @@
             text-align: center;
             font-size: 50px;
         }
+
         .animacao {
             transform: scale(4.5);
             font-family: Arial, Helvetica, sans-serif;
+        }
+
+        button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 18px;
+            cursor: pointer;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+        a{
+            text-decoration: none;
+            color: inherit;
         }
     </style>
 </head>
@@ -24,6 +44,14 @@
     <button onclick="mostrar()">clique aqui</button>
     <p>sexo</p>
 
+    <!-- Botões que direcionam para as páginas -->
+    <div style="text-align: center;">
+        <a href="html_css/index.html"><button>HTML e CSS</button></a>
+        <a href="bootstrap/index.html"><button>Bootstrap</button></a>
+        <a href="php/index.php"><button>PHP</button></a>
+    </div>
+
+    <script>
         function mostrar() {
             var conteudo = document.getElementById('conteudo');
             conteudo.innerHTML = "WOOOOOW";
@@ -42,15 +70,15 @@
             conteudo.style.color = "black";
             conteudo.style.backgroundColor = "pink";
         }
-        conteudo.addEventListener('mouseover', function() {
-            var conteudo = document.getElementById('conteudo');
+
+        var conteudo = document.getElementById('conteudo');
+        conteudo.addEventListener('mouseover', function () {
             conteudo.classList.add('animacao');
         });
 
-        conteudo.addEventListener('mouseout', function() {
-            var conteudo = document.getElementById('conteudo');
+        conteudo.addEventListener('mouseout', function () {
             conteudo.classList.remove('animacao');
-            });
+        });
     </script>
 </body>
 
