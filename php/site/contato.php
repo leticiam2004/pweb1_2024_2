@@ -1,36 +1,31 @@
-<?php
-include "./header.php"
-    ?>
-
-<?php
-if (!empty($_GET)) {
-    echo "<div class='alert alert-success' role='alert'>
-    <b>registro salvo</b><br>
-    nome {$_GET['name']} email {$_GET['email']} mensagem {$_GET['mensagem']}
-    </div>";
-}
+<?php include "./header.php"; ?>
+<?php 
+    if(!empty($_POST)){
+        echo "<div class='alert alert-success' role='alert'>
+                Nome:{$_POST['name']}<br>
+                Email: {$_POST['email']}<br>
+                Mensagem: {$_POST['text']}        
+            </div>";
+    }
 ?>
 <div class="row">
     <div class="col">
-        <h2>contato</h2>
-        <form action="contato.php" method="get">
+        <h2>Contato</h2>
+        <form action="contato.php" method="post">
             <div class="mb-3">
-                <label for="exampleFormControlInput1" class="form-label">Name</label>
-                <input type="Name" class="form-control" name="name" placeholder="ze da silva">
+                <label for="name" class="form-label">Nome</label>
+                <input type="text" class="form-control" name="name" id="name">
             </div>
             <div class="mb-3">
-                <label for="exampleFormControlInput1" class="form-label">Email address</label>
-                <input type="email" class="form-control" name="email" placeholder="name@example.com">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" class="form-control" name="email" id="email" placeholder="name@example.com">
             </div>
             <div class="mb-3">
-                <label for="exampleFormControlTextarea1" class="form-label">Example textarea</label>
-                <textarea class="form-control" name="mensagem" rows="3"></textarea>
+                <label for="text" class="form-label">Conteudo</label>
+                <textarea class="form-control" name="text" id="text" rows="3"></textarea>
             </div>
-            <button type="submit" class="btn btn-success">pica</button>
+            <button type="submit" class="btn btn-success">Enviar</button>
         </form>
     </div>
 </div>
-
-<?php
-include "./footer.php"
-    ?>
+<?php include "./footer.php"; ?>

@@ -5,15 +5,17 @@ class db {
     private $host = "localhost";
     private $user = "root";
     private $password = "";
-    private $port = "3307";
+    private $port = "3306";
     private $dbname ="db_pweb1_2024_2_blog";
 
-
+    public function __construct(){
+        $this->conn();
+    }
     function conn(){
 
         try{
             $conn = new PDO(
-                "mysql:host=$this->host;dbname=$this->dbname",
+                "mysql:host=$this->host;dbname=$this->dbname;port=$this->port",
                 $this->user,
                 $this->password,
                 [
@@ -29,18 +31,59 @@ class db {
             echo "Erro: ". $e->getMessage();
         }
     }
-    public function insert($dados): void {
+
+    public function insert($data){
         $conn = $this->conn();
         $sql = "INSERT INTO categoria(nome) VALUES(?)";
         $stmt = $conn->prepare($sql);
-        $stmt->execute([$dados['nome']]);
+        $stmt->execute([$data['nome']]);
+    }
+    public function update($data){
+        $conn = $this->conn();
+        $sql = "UPDATE categoria SET nome = ? WHERE id = ?";
+        $stmt = $conn->prepare($sql);
+        $stmt->execute([$data['nome'],$data['id']]);
     }
 
     public function all(){
         $conn = $this->conn();
-        $sql = "SELECT * FROM categoria";
+        $sql = 'SELECT * FROM categoria';
         $stmt = $conn->prepare($sql);
         $stmt->execute();
-        return $stmt->fetchAll(PDO::FETCH_CLASS);
+        
+        return $stmt->fetchALL(PDO::FETCH_CLASS);
+
+    }
+    public function filter($data){
+        
+        $tipo = $data['tipo'];
+        $val = $data['valor'];
+        $conn = $this->conn();
+
+        $sql = "SELECT * FROM categoria WHERE $tipo LIKE ?";
+        $stmt = $conn->prepare($sql);
+        $stmt->execute(["%$val%",]);
+        
+        return $stmt->fetchALL(PDO::FETCH_CLASS);
+
+    }
+    public function find($id){
+                $conn = $this->conn();
+
+        $sql = "SELECT * FROM categoria WHERE id LIKE ?";
+        $stmt = $conn->prepare($sql);
+        $stmt->execute([$id,]);
+
+        return $stmt->fetchObject();
+
+    }
+
+    public function destroy($id){
+        $conn = $this->conn();
+        $sql = 'DELETE FROM categoria WHERE id =?';
+        $stmt = $conn->prepare($sql);
+        $stmt->execute([$id]);
+        
+
     }
 }
