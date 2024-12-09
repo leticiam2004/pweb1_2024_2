@@ -119,6 +119,19 @@ class db
         return $stmt->fetchObject();
     }
 
+    public function login($dados) {
+        $conn = $this->conn();
+        $sql = "SELECT * FROM $this->table_name WHERE login = ?";
+        $st = $conn->prepare($sql);
+        $st->execute([$dados['login']]);
+        $result = $st->fetchObject();
+        if(password_verify($dados['senha'], $result->senha)){
+            return $result;
+        } else {
+            return "error";
+        }
+    }
+
     public function destroy($id)
     {
         $sql = "DELETE FROM $this->table_name WHERE id = ?";
